@@ -1,21 +1,21 @@
 {% import "_includes/forms" as forms %}
 
 <form id="devimages" action="{{ actionUrl('devImages') }}" method="post" accept-charset="UTF-8">
-	{{ getCsrfInput() }}
+    {{ getCsrfInput() }}
 
-	<p>Generates lightweight placeholder images for missing image assets.</p>
+    <p>Generates lightweight placeholder images for missing image assets.</p>
 
-	{{ forms.checkbox({
-		label: 'Clear all asset caches' | t,
-		value: 1,
-		checked: true,
-		name: 'clearCache'
-	}) }}
+    {{ forms.checkbox({
+        label: 'Clear all asset caches' | t,
+        value: 1,
+        checked: true,
+        name: 'clearCache'
+    }) }}
 
-	<div class="buttons">
-		<div class="btngroup">
-			<input type="submit" class="btn submit" value="{{ 'Generate Images'|t }}">
-			<div class="spinner hidden"></div>
-		</div>
-	</div>
+    <div class="buttons">
+        <div class="btngroup">
+            <input type="submit" class="btn submit" value="{{ 'Generate Images'|t }}">
+            <div class="spinner hidden"></div>
+        </div>
+    </div>
 </form>
