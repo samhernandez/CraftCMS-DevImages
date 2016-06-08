@@ -7,7 +7,9 @@ class DevImagesController extends BaseController
     {
         $this->requireAjaxRequest();
 
-        craft()->devImages->generateMissingImages();
+        $sources = craft()->request->getPost('sources');
+
+        craft()->devImages->generateMissingImages($sources);
 
         $clearCache = (bool) craft()->request->getPost('clearCache');
         if ($clearCache) {

@@ -3,7 +3,17 @@
 <form id="devimages" action="{{ actionUrl('devImages') }}" method="post" accept-charset="UTF-8">
     {{ getCsrfInput() }}
 
-    <p>Generates lightweight placeholder images for missing image assets.</p>
+    <p>Generates lightweight placeholder images for missing image assets. If any asset source  below is disabled, check that the asset sources 'file system path' exists and is writable.</p>
+
+    {% for source in sourceList %}
+		{{ forms.checkboxField({
+			label: source.source.name,
+			value: source.source.id,
+			checked: source.valid,
+			disabled: not source.valid,
+			name: 'sources[]'
+		}) }}
+    {% endfor %}
 
     {{ forms.checkbox({
         label: 'Clear all asset caches' | t,
